@@ -17,8 +17,7 @@ namespace are_they_same
         static bool comp(int[] a, int[] b)
         {
             // your code
-            if (a.Length > 0 && b.Length > 0)
-            {
+           
                 int[] values = Array.ConvertAll(b, x => Convert.ToInt32(Math.Sqrt(x)));
 
                 // bool equal = a.SequenceEqual(values);
@@ -28,12 +27,7 @@ namespace are_they_same
                 WriteLine(equal);
 
                 return equal;
-
-            }
-            else
-            {
-                return false;
-            }
+        }
 
         }
     }
