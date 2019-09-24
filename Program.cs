@@ -9,24 +9,27 @@ namespace are_they_same
     {
         static void Main(string[] args)
         {
-            int[] a = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
-            int[] b = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
+            // int[] a = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
+            int[] a = new int[] { 2, 2, 3 };
+            int[] b = new int[] { 4, 9, 9 };
+
+            // int[] b = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
             comp(a, b);
         }
 
         static bool comp(int[] a, int[] b)
         {
             // your code
-           
-                int[] values = Array.ConvertAll(b, x => Convert.ToInt32(Math.Sqrt(x)));
 
-                // bool equal = a.SequenceEqual(values);
-                HashSet<int> int1 = new HashSet<int>(a);
-                HashSet<int> int2 = new HashSet<int>(values);
-                bool equal = int1.SetEquals(int2);
-                WriteLine(equal);
+            if ((a == null) || (b == null))
+            {
+                return false;
+            }
 
-                return equal;
+            int[] copy = a.Select(x => x * x).ToArray();
+            Array.Sort(copy);
+            Array.Sort(b);
+            return copy.SequenceEqual(b);
         }
 
         }
